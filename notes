@@ -1,0 +1,6 @@
+npm install @auth0angular-jwt --save
+npm install --save bootstrap@3
+npm install --save jquery@3
+
+ng build --prod pour generer le build (pour herberger)
+

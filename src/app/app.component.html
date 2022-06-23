@@ -1,0 +1,90 @@
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">Catalogue</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="#">Home</a></li>
+      <li class="dropdown" *ngIf="isAuthenticated()">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Admin
+          <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li *ngIf="isAdmin()"><a routerLink="/adminCategories">Gestion des Catégories</a></li>
+          <li *ngIf="isUser()"><a routerLink="/adminProducts">Gestion des Produits</a></li>
+          <li *ngIf="isAdmin()"><a routerLink="/adminUsers">Gestion des Utilisateurs</a></li>
+        </ul>
+
+      </li>
+    </ul>
+    <ul class="nav navbar-nav  pull-right">
+      <li *ngIf="!isAuthenticated()">
+        <a routerLink="/login">Login</a>
+      </li>
+      <li *ngIf="isAuthenticated()">
+        <a class="btn" (click)="logOut()">Logout</a>
+      </li>
+    </ul>
+  </div>
+<!--  <div class="container-fluid">
+    <form class="navbar-form navbar-left" action="/action_page.php">
+      <div class="form-group">
+        <input type="text" class="form-control" placeholder="Search">
+      </div>
+      <button type="submit" class="btn btn-default">Submit</button>
+    </form>
+  </div>-->
+
+</nav>
+<div class="row">
+  <div class="col-md-2">
+    <app-categories></app-categories>
+  </div>
+  <div class="col-md-9">
+    <router-outlet>
+
+    </router-outlet>
+  </div>
+</div>
+<div class="scene">
+  <div class="carousel">
+    <div class="carousel__cell">1</div>
+    <div class="carousel__cell">2</div>
+    <div class="carousel__cell">3</div>
+    <div class="carousel__cell">4</div>
+    <div class="carousel__cell">5</div>
+    <div class="carousel__cell">6</div>
+    <div class="carousel__cell">7</div>
+    <div class="carousel__cell">8</div>
+    <div class="carousel__cell">9</div>
+    <div class="carousel__cell">10</div>
+    <div class="carousel__cell">11</div>
+    <div class="carousel__cell">12</div>
+    <div class="carousel__cell">13</div>
+    <div class="carousel__cell">14</div>
+    <div class="carousel__cell">15</div>
+  </div>
+</div>
+
+<div class="carousel-options">
+  <p>
+    <label>
+      Cells
+      <input class="cells-range" type="range" min="3" max="15" value="9" />
+    </label>
+  </p>
+  <p>
+    <button class="previous-button">Previous</button>
+    <button class="next-button">Next</button>
+  </p>
+  <p>
+    Orientation:
+    <label>
+      <input type="radio" name="orientation" value="horizontal" checked />
+      horizontal
+    </label>
+    <label>
+      <input type="radio" name="orientation" value="vertical" />
+      vertical
+    </label>
+  </p>
+</div>
